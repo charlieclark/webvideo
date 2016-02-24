@@ -48,7 +48,7 @@ function processVideo(extension) {
 
     switch (extension) {
         case "mp4":
-            command = format('ffmpeg -y -i {inputFile} {mute} -vcodec libx264 {size} -preset slow -f mp4 -crf 20 {dest}', options);
+            command = format('ffmpeg -y -i {inputFile} {mute} -codec:v libx264 -profile:v high -preset slow -b:v 1000k -maxrate 1000k -bufsize 2000k {size} -threads 0 -codec:a libfdk_aac -b:a 128k {dest}', options);
             break;
         case "webm":
             command = format('ffmpeg -y -i {inputFile} -c:v libvpx {size} -crf 20 {mute} -c:a libvorbis {dest}', options)
