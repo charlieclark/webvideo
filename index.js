@@ -51,10 +51,10 @@ function processVideo(extension) {
             command = format('ffmpeg -y -i {inputFile} {mute} -vcodec libx264 {size} -preset slow -f mp4 -crf 20 {dest}', options);
             break;
         case "webm":
-            command = format('ffmpeg -y -i {inputFile} -c:v libvpx {size} -crf 20 -b:v 1M {mute} -c:a libvorbis {dest}', options)
+            command = format('ffmpeg -y -i {inputFile} -c:v libvpx {size} -crf 20 {mute} -c:a libvorbis {dest}', options)
             break;
         case "ogv":
-            command = format('ffmpeg -y -i {inputFile} -c:v libtheora {size} -c:a libvorbis {mute} -q:v 8 -q:a 8 {dest}', options)
+            command = format('ffmpeg -y -i {inputFile} -c:v libtheora {size} -c:a libvorbis {mute} -q:v 9 -q:a 9 {dest}', options)
             break
     }
 
